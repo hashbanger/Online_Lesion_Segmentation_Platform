@@ -20,26 +20,32 @@
   <h3>This is the home page for Skin Lesion Segmentation Online Platform</h3>
   <br><br><br>
 <div class="container">
-      <div class="col-six">
+     <div class="row">
+      <div class="col-5 pt-5">
+  
         <form action="/home" method="POST" enctype="multipart/form-data">
           <div class="form-group">
-            <label>Select Image</label>
+            <p class="text-center">Select Image</p>
             <div class = 'custom-file'>
                 <input type="file" class="custom-file-input" name = 'image' id = 'image'>
                 <label class="custom-file-label" for="image">Select Image...</label>
                 <br>
                 <br>
-                <button type= "submit" class="btn btn-primary">Upload Image</button>
+                <div class="center-container">
+                  <button type= "submit" class="btn btn-primary element-center mt-4">Upload Image</button>
+                </div>
               </div>
           </div>
         </form>
+       
     </div>
 
-    <div class="col-six">
+    <div class="col-5 offset-2">
         <img src="{{ url_for('static', filename = 'segmented.bmp')}}">
         <br><br>
         <a href="/download"><button type= "submit" class="btn btn-primary">See Results</button></a>    
     </div> 
+     </div>
   </div>
 </body>
 </html>
