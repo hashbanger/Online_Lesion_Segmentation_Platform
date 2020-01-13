@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'main.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC|Khand&display=swap" rel="stylesheet"> 
+    <title>Lesion Segmentation</title>
+</head>
+<body>
+    <header>
+        <h1 class="logo"><a href="home.html">Lesion Segmentation</a></h1>
+        <h5 class="logo">For Medical Organzations</h5>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="{{ url_for('segment') }}">Segment</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    {% block content %}{% endblock content %}
+
+    <footer>
+        <ul class="footer-nav">
+            <li><a href="https://www.github.com/hashbanger" target = "blank"><img src="https://www.pngkey.com/png/full/178-1787243_github-icon-png-github-icon-white-png.png" alt=""></a></li>
+            <li><a href="https://www.linkedin.com/in/prashantbrahmbhatt" target = "black"><img src="https://bmz-group.com/images/icon_linkedin_weiss.png" alt=""></a></li>
+            <li><a href="https://www.instagram.com/capeandcode" target = "blank"><img src="https://www.edigitalagency.com.au/wp-content/uploads/new-instagram-logo-white-border-icon-png-large.png" alt=""></a></li>
+            <li><a href="#" target = "blank"><img src="https://i.ya-webdesign.com/images/white-website-png.png" alt=""></a></li>
+        </ul>
+
+        <div class="copyright">© copyright 2020 <br><br>
+            c a p e a n d c o d e</div>
+    </footer>
+</body>
+</html>

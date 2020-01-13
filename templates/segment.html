@@ -1,50 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'segment.css')}}">
-    <title>Skin Lesion Segmentation</title>
-</head> 
-<nav class="navbar navbar-light" style="background-color:#4056A1">
-  <span>
-  <a href="{{url_for('home')}}"><button class="btn btn-outline-light">Home</button></a>
-  <a href="{{url_for('home')}}"><button class="btn btn-outline-light">About</button></a>
-  </span>
-</nav>
-<body>
-  <br>  
-  <h3>This is the home page for Skin Lesion Segmentation Online Platform</h3>
-  <br><br><br>
-<div class="container">
-     <div class="row">
-      <div class="col-5 pt-5">
-  
-        <form action="/home" method="POST" enctype="multipart/form-data">
-          <div class="form-group">
-            <p class="text-center">Select Image</p>
-            <div class = 'custom-file'>
-                <input type="file" class="custom-file-input" name = 'image' id = 'image'>
-                <label class="custom-file-label" for="image">Select Image...</label>
-                <br>
-                <br>
-                <div class="center-container">
-                  <button type= "submit" class="btn btn-primary button-align-center mt-4">Upload Image</button>
-                </div>
-              </div>
-          </div>
-        </form>
-       
-    </div>
+{% extends "layout.html" %}
+{% block content %}
 
-    <div class="col-5 offset-2">
-        <img class="element-center" src="{{ url_for('static', filename = 'segmented.bmp')}}">
-        <br><br>
-        <a href="/download"><button type= "submit" class="btn btn-primary button-align-center">See Results</button></a>    
-    </div> 
-     </div>
-  </div>
-</body>
-</html>
+
+<section class="about-lesion">
+    <header class="about-lesion__intro">
+        <h2 class="section-title">
+            Segmenting using SegNet
+        </h2> 
+    </header>
+</section>
+
+<div class="segment-container">
+    <div class="row">
+     <div class="col">
+ 
+       <form action="/segment" method="POST" enctype="multipart/form-data">
+         <div class="form-group">
+           <p class="text-center">Select Image</p>
+           <div class = 'custom-file'>
+               <input type="file" class="custom-file-input" name = 'image' id = 'image'>
+               <label class="custom-file-label" for="image">Select Image...</label>
+               <br>
+               <br>
+               <div class="center-container">
+                 <button type= "submit" class="btn btn-primary button-align-center mt-4">Start Segmenting</button>
+               </div>
+             </div>
+         </div>
+       </form>
+      
+   </div>
+
+   <div class="col-5 offset-2">
+       <img class="element-center" src="{{ url_for('static', filename = 'segmented.bmp')}}">
+       <br><br>
+       <a href="/download"><button type= "submit" class="btn btn-primary button-align-center">See Results</button></a>    
+   </div> 
+    </div>
+ </div>
+
+{% endblock content %}
