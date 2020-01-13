@@ -1,0 +1,198 @@
+/* --------------------------------------FONTS---------------------------------------------------- */
+@font-face {
+    font-family: "Test";
+    src: url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
+    }
+    
+/* ----------------------------------------------------------------------------------------------- */
+
+:root{
+    --clr-text: #353535;
+    --clr-primary: #26a73b;
+    --clr-accent: #412388;
+    
+    --ff-title: 'Khand';
+    --ff-serif: 'helvetica', serif;
+    --ff-logo: 'Playfair Display SC', serif;
+
+
+}
+p{
+    margin: 0;
+}
+html{
+    box-sizing: border-box;
+    font-family: var(--ff-serif);
+    color: var(--clr-text);
+}
+
+body{
+    margin: 0;
+}
+
+h2,h3{
+    font-family: var(--ff-title);
+    line-height: 1.3;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+p{
+    margin-bottom: 0.85em;
+}
+
+.text-primary{
+    color: var(--clr-primary);
+}
+
+.logo{
+    font-family: var(--ff-logo);
+    text-align: center;
+}
+
+.logo a{
+    text-decoration: none;
+    color: black;
+}
+
+header{
+    padding: 1em 0 2em;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+    padding: 0vh 0;
+}
+
+nav ul{
+    display: flex;
+    list-style: None;
+    margin: 0;
+    padding: 0;
+    justify-content: space-around;
+}
+
+nav a{
+    display: inline-block;
+    padding: 0.6em;
+    color: var(--clr-primary);
+}
+
+nav a:hover,
+nav a:focus{
+    color: var(--clr-accent);
+    text-decoration: underline;
+}
+
+.hero{
+    background-color: var(--clr-accent);
+    background-image: url(https://www.topbots.com/wp-content/uploads/2019/04/cover_1600px_web-1280x640.jpg);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    text-align: center;
+}
+
+section{
+    padding: 3em 1em;
+}
+
+.intro{
+    text-align: center;
+}
+
+.about-lesion, .about-segmentation, .segment-lesion{
+    background-color: var(--clr-accent);
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 0px 0px;
+}
+
+.about-lesion__intro{
+    background-color: var(--clr-accent);
+    background-image: url(https://4dskinclinic.com.au/wp-content/uploads/2016/04/skin-cancer-mosaic.jpg);
+    background-blend-mode: multiply;
+    display: cover;
+    background-attachment: fixed;
+    padding: 3em 1em;
+}
+
+.about-segmentation__intro{
+    background-color: var(--clr-accent);
+    background-image: url(https://hackernoon.com/hn-images/0*UxWo02t-91KSnQJK.);
+    background-blend-mode: multiply;
+    display: cover;
+    background-attachment: fixed;
+    padding: 3em 1em;
+}
+
+.segment-lesion__intro{
+    background-color: var(--clr-accent);
+    background-image: url(https://hackernoon.com/hn-images/0*UxWo02t-91KSnQJK.);
+    background-blend-mode: multiply;
+    display: cover;
+    background-attachment: fixed;
+    padding: 3em 1em;
+}
+
+.lesion-info, .segmentation-info{
+    margin: 1em 2em;
+}
+.about-lesion__intro .section-title,
+.about-segmentation__intro .section-title
+{
+    margin: 1em 1em;
+}
+
+/* .about-lesion__body{
+    padding: 1.5em 1em 3em;
+} */
+
+footer a{
+    color: white;
+}
+
+footer{
+    background-color: var(--clr-accent);
+    padding: 3em 0em;
+    color: white;
+}
+
+.footer-nav{
+    list-style: none;
+    display: flex;
+    color: white;
+    padding: 3m 1em;
+    justify-content: center;
+}
+
+.footer-nav a{
+    padding: 0.75em;
+    text-decoration: none;
+
+}
+
+.footer-nav li{
+    padding: 2em;
+}
+
+.footer-nav a:hover,
+.footer-nav a:focus{
+    text-decoration: underline;
+}
+
+.footer-nav a img{
+    height: 2rem;
+    width: 2rem;
+}
+
+.copyright{
+    text-align: center;
+}
+
+.segment-container{
+    align-content: center;
+}
