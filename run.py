@@ -172,10 +172,22 @@ app = Flask(__name__)
 app.config['IMAGE_UPLOADS'] = 'C:\\Users\\ACER\\Documents\\workspace\\skin lesion\\Final_Year_Project\\static'
 
 @app.route('/')
-@app.route('/home', methods = ['GET','POST'])
+@app.route('/home')
 def home():
     # if os.path.exists(r'C:\Users\ACER\Documents\workspace\skin lesion\Final_Year_Project\static\segmented.bmp'): 
     #     os.remove(r'C:\Users\ACER\Documents\workspace\skin lesion\Final_Year_Project\static\segmented.bmp')
+    # if request.method == "POST":
+    #     if request.files:
+    #         image = request.files["image"]
+    #         filename = str(image.filename)
+    #         image.save(os.path.join(app.config['IMAGE_UPLOADS'], image.filename))
+    #         print("Saved!")
+    #         convert(filename)
+    #         return redirect(request.url)
+    return render_template('home.html')
+
+@app.route('/segment', methods = ['GET','POST'])
+def segment():
     if request.method == "POST":
         if request.files:
             image = request.files["image"]
@@ -183,9 +195,9 @@ def home():
             image.save(os.path.join(app.config['IMAGE_UPLOADS'], image.filename))
             print("Saved!")
             convert(filename)
+            # os.remove(r'C:\Users\ACER\Documents\workspace\skin lesion\Final_Year_Project\static\*.bmp')
             return redirect(request.url)
-    return render_template('home.html')
-
+    return render_template('segment.html')
 
 def convert(filename):
     filename = os.path.join(r"C:\Users\ACER\Documents\workspace\skin lesion\Final_Year_Project\static",filename)
