@@ -8,8 +8,8 @@
 
 :root{
     --clr-text: #353535;
-    --clr-primary: #26a73b;
-    --clr-accent: #412388;
+    --clr-primary: #94618E;
+    --clr-accent: #49274A;
     
     --ff-title: 'Khand';
     --ff-serif: 'helvetica', serif;
@@ -103,7 +103,7 @@ section{
     text-align: center;
 }
 
-.about-lesion, .about-segmentation, .segment-lesion{
+.about-lesion, .about-segmentation, .segment-lesion, .about-author{
     background-color: var(--clr-accent);
     display: flex;
     flex-direction: column;
@@ -111,45 +111,39 @@ section{
     padding: 0px 0px;
 }
 
-.about-lesion__intro{
+.parallax{
     background-color: var(--clr-accent);
-    background-image: url(https://4dskinclinic.com.au/wp-content/uploads/2016/04/skin-cancer-mosaic.jpg);
     background-blend-mode: multiply;
     display: cover;
     background-attachment: fixed;
     padding: 3em 1em;
+}
+
+.about-lesion__intro{
+    background-image: url(https://4dskinclinic.com.au/wp-content/uploads/2016/04/skin-cancer-mosaic.jpg);
 }
 
 .about-segmentation__intro{
-    background-color: var(--clr-accent);
     background-image: url(https://hackernoon.com/hn-images/0*UxWo02t-91KSnQJK.);
-    background-blend-mode: multiply;
-    display: cover;
-    background-attachment: fixed;
-    padding: 3em 1em;
 }
 
 .segment-lesion__intro{
-    background-color: var(--clr-accent);
     background-image: url(https://hackernoon.com/hn-images/0*UxWo02t-91KSnQJK.);
-    background-blend-mode: multiply;
-    display: cover;
-    background-attachment: fixed;
-    padding: 3em 1em;
+}
+
+.about-author__intro{
+    background-image: url(https://media.glassdoor.com/l/5b/91/18/5d/coding-projects.jpg);
 }
 
 .lesion-info, .segmentation-info{
     margin: 1em 2em;
 }
 .about-lesion__intro .section-title,
-.about-segmentation__intro .section-title
+.about-segmentation__intro .section-title,
+.about-author__intro .section-title
 {
     margin: 1em 1em;
 }
-
-/* .about-lesion__body{
-    padding: 1.5em 1em 3em;
-} */
 
 footer a{
     color: white;
@@ -157,7 +151,7 @@ footer a{
 
 footer{
     background-color: var(--clr-accent);
-    padding: 3em 0em;
+    padding: 1em 0em;
     color: white;
 }
 
@@ -194,5 +188,57 @@ footer{
 }
 
 .segment-container{
+    border: #2a1d5a;
+    margin-left: 30%;
+    /* justify-content: center; */
     align-content: center;
+}
+
+.col-1{
+    float: left;
+}
+
+
+.button {
+    max-width: 250px;
+    background-color: var(--clr-accent);
+    color: white;
+    /* border: 2px solid #4CAF50; Green */
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.button:hover{
+    background-color: #dbdbdb;
+    color: var(--clr-accent);    
+}
+
+.output-image{
+    border-radius: 8px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.671), 0 6px 20px 0 rgba(0, 0, 0, 0.671);
+}
+
+.profile-image{
+    max-width: 250px;
+    max-height: 250px;
+    border: 3px solid var(--clr-primary);
+    border-radius: 8px;
+    border-color: var(--clr-primary);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+}
+
+.author-info
+{
+    margin: 1em 2em;
+}
+
+.content{
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
