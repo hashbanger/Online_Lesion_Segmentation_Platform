@@ -10,14 +10,14 @@
 </head>
 <body>
     <header>
-        <h1 class="logo"><a href="home.html">Lesion Segmentation</a></h1>
-        <h5 class="logo">For Medical Organzations</h5>
+        <h1 class="logo"><a href="{{ url_for('home') }}">Lesion Segmentation</a></h1>
+        <h5 class="logo">by Prashant Brahmbhatt</h5>
         <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
+            <ul class="header-nav">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="{{ url_for('segment') }}">Segment</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
             </ul>
         </nav>
     </header>

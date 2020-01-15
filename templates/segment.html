@@ -3,27 +3,28 @@
 
 
 <section class="about-lesion">
-    <header class="about-lesion__intro">
+    <header class="parallax about-lesion__intro">
         <h2 class="section-title">
             Segmenting using SegNet
         </h2> 
     </header>
 </section>
 
+<br><br><br>
+
 <div class="segment-container">
     <div class="row">
-     <div class="col">
+     <div class="col-1">
  
        <form action="/segment" method="POST" enctype="multipart/form-data">
          <div class="form-group">
            <p class="text-center">Select Image</p>
            <div class = 'custom-file'>
-               <input type="file" class="custom-file-input" name = 'image' id = 'image'>
-               <label class="custom-file-label" for="image">Select Image...</label>
+               <input type="file" class="button" name = 'image' id = 'image'>
                <br>
                <br>
                <div class="center-container">
-                 <button type= "submit" class="btn btn-primary button-align-center mt-4">Start Segmenting</button>
+                 <button type= "submit" class="button">Start Segmenting</button>
                </div>
              </div>
          </div>
@@ -31,12 +32,15 @@
       
    </div>
 
-   <div class="col-5 offset-2">
-       <img class="element-center" src="{{ url_for('static', filename = 'segmented.bmp')}}">
+   <div class="col-2">
+        <label class='output-image-label' for="image">Segmented Output</label>
+        <br><br>
+       <img class="output-image" src="{{ url_for('static', filename = 'segmented.bmp')}}">
        <br><br>
-       <a href="/download"><button type= "submit" class="btn btn-primary button-align-center">See Results</button></a>    
+       <a href="/download"><button type= "submit" class="button">See Raw</button></a>    
    </div> 
     </div>
  </div>
 
+ <br><br><br>
 {% endblock content %}
