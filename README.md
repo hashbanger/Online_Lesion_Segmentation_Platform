@@ -1,4 +1,4 @@
-# Final_Year_Project
+# Online Lesion Segmentation Platform
 Segmentation Platform for Skin Lesion Segmentation Online using Flask nad Python
 
 ## Intructions  
