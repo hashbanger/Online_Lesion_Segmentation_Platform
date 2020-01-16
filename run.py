@@ -19,6 +19,10 @@ app.config['IMAGE_UPLOADS'] = 'C:\\Users\\ACER\\Documents\\workspace\\repositori
 def home():
     return render_template('home.html')
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 @app.route('/segment', methods = ['GET','POST'])
 def segment():
     if request.method == "POST":
@@ -32,13 +36,24 @@ def segment():
             return redirect(request.url)
     return render_template('segment.html')
 
+def enhance(img):
+    sub = (model.predict(img.reshape(1,192,256,3))).flatten()
+
+    for i in range(len(sub)):
+        if sub[i] > 0.5:
+            sub[i] = 1
+        else:
+            sub[i] = 0
+    return sub
+
 def convert(filename):
     filename = os.path.join(r"C:\Users\ACER\Documents\workspace\repositories\Final_Year_Project\static",filename)
     inp_image = np.array(Image.open(filename))
     print('Segmenting...\n')
-    img_pred = model.predict(inp_image.reshape(1,192,256,3))
+    # img_pred = model.predict(inp_image.reshape(1,192,256,3))
+    img_pred = enhance(inp_image).reshape(192,256)
     print('Segmented!\n')
-    img_pred = img_pred.reshape(192,256)
+    # img_pred = img_pred.reshape(192,256)
     plt.imshow(img_pred)
     im = Image.fromarray(np.uint8(cm.gist_earth(img_pred)*255))
     im = im.convert("L")

@@ -50,6 +50,7 @@ def accuracy(y_true, y_pred):
     classification problems.
     '''
     return K.mean(K.equal(y_true, K.round(y_pred)))
+
 img_input = Input(shape= (192, 256, 3))
 x = Conv2D(64, (3, 3), padding='same', name='conv1',strides= (1,1))(img_input)
 x = BatchNormalization(name='bn1')(x)

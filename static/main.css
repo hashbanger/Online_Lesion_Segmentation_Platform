@@ -14,7 +14,8 @@
     --ff-title: 'Khand';
     --ff-serif: 'helvetica', serif;
     --ff-logo: 'Playfair Display SC', serif;
-
+    --ff-nav: 'ABeeZee',serif;
+    --ff-body: 'Public Sans',serif;
 
 }
 p{
@@ -28,6 +29,7 @@ html{
 
 body{
     margin: 0;
+    font-family: var(--ff-body);
 }
 
 h2,h3{
@@ -65,6 +67,10 @@ img{
     padding: 0vh 0;
 }
 
+header nav{
+    background-color: #fbf9fc;
+}
+
 nav ul{
     display: flex;
     list-style: None;
@@ -77,12 +83,14 @@ nav a{
     display: inline-block;
     padding: 0.6em;
     color: var(--clr-primary);
+    font-family: var(--ff-nav);
+    text-decoration: none;
 }
 
 nav a:hover,
 nav a:focus{
-    color: var(--clr-accent);
-    text-decoration: underline;
+    color: black;
+    text-decoration: none;
 }
 
 .hero{
@@ -128,7 +136,7 @@ section{
 }
 
 .segment-lesion__intro{
-    background-image: url(https://hackernoon.com/hn-images/0*UxWo02t-91KSnQJK.);
+    background-image: url(https://www.mdpi.com/diagnostics/diagnostics-09-00072/article_deploy/html/images/diagnostics-09-00072-g013.png);
 }
 
 .about-author__intro{
@@ -189,7 +197,7 @@ footer{
 
 .segment-container{
     border: #2a1d5a;
-    margin-left: 30%;
+    margin-left: 21%;
     /* justify-content: center; */
     align-content: center;
 }
@@ -220,6 +228,8 @@ footer{
 
 .output-image{
     border-radius: 8px;
+    height: 400px;
+    width: 550px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.671), 0 6px 20px 0 rgba(0, 0, 0, 0.671);
 }
 
