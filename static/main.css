@@ -197,13 +197,16 @@ footer{
 
 .segment-container{
     border: #2a1d5a;
-    margin-left: 21%;
+    margin-left: 10%;
     /* justify-content: center; */
     align-content: center;
 }
 
-.col-1{
+
+
+.col-2, .col-3{
     float: left;
+    margin: 2em;
 }
 
 
@@ -228,8 +231,8 @@ footer{
 
 .output-image{
     border-radius: 8px;
-    height: 400px;
-    width: 550px;
+    height: 192px;
+    width: 256px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.671), 0 6px 20px 0 rgba(0, 0, 0, 0.671);
 }
 
