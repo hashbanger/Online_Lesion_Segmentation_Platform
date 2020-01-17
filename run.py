@@ -10,9 +10,10 @@ from matplotlib import cm
 import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
+import cv2 
 
 app = Flask(__name__)
-app.config['IMAGE_UPLOADS'] = 'C:\\Users\\ACER\\Documents\\workspace\\repositories\\Final_Year_Project\\static'
+app.config['IMAGE_UPLOADS'] = 'C:\\Users\\ACER\\Documents\\workspace\\repositories\\Online_Lesion_Segmentation_Platform\\static'
 
 @app.route('/')
 @app.route('/home')
@@ -28,8 +29,9 @@ def segment():
     if request.method == "POST":
         if request.files:
             image = request.files["image"]
-            filename = str(image.filename)
-            image.save(os.path.join(app.config['IMAGE_UPLOADS'], image.filename))
+            # filename = str(image.filename)
+            filename = "input_image.bmp"
+            image.save(os.path.join(app.config['IMAGE_UPLOADS'], filename))
             print("Saved!")
             convert(filename)
             # os.remove(r'C:\Users\ACER\Documents\workspace\skin lesion\Final_Year_Project\static\*.bmp')
@@ -46,24 +48,35 @@ def enhance(img):
             sub[i] = 0
     return sub
 
+def get_segment_crop(img,tol=0, mask=None):
+    if mask is None:
+        mask = img > tol
+    return img[np.ix_(mask.any(1), mask.any(0))]
+
 def convert(filename):
-    filename = os.path.join(r"C:\Users\ACER\Documents\workspace\repositories\Final_Year_Project\static",filename)
+    filename = os.path.join(r"C:\Users\ACER\Documents\workspace\repositories\Online_Lesion_Segmentation_Platform\static",filename)
     inp_image = np.array(Image.open(filename))
     print('Segmenting...\n')
-    # img_pred = model.predict(inp_image.reshape(1,192,256,3))
-    img_pred = enhance(inp_image).reshape(192,256)
-    print('Segmented!\n')
-    # img_pred = img_pred.reshape(192,256)
-    plt.imshow(img_pred)
-    im = Image.fromarray(np.uint8(cm.gist_earth(img_pred)*255))
-    im = im.convert("L")
-    im.save(r"C:\Users\ACER\Documents\workspace\repositories\Final_Year_Project\static\segmented.bmp")
-    print('Saved!\n')
 
+    img_pred = enhance(inp_image).reshape(192,256)
+    img_crop = get_segment_crop(img=inp_image, mask= img_pred)
+    print('Segmented!\n')
+    print("Cropped!\n")
+
+    im_1 = Image.fromarray(np.uint8(cm.gist_earth(img_pred)*255))
+    im_1 = im_1.convert("L")
+    im_1.save(r"C:\Users\ACER\Documents\workspace\repositories\Online_Lesion_Segmentation_Platform\static\segmented.bmp")
+
+
+    dim = (256, 192)
+    im_2 = cv2.resize(img_crop, dim, interpolation = cv2.INTER_AREA)
+    im_2 = Image.fromarray(im_2)
+    im_2 = im_2.convert("RGB")
+    im_2.save(r"C:\Users\ACER\Documents\workspace\repositories\Online_Lesion_Segmentation_Platform\static\cropped.bmp")
 
 @app.route('/download', methods = ['GET','POST'])
 def download():
-    return send_file(r"C:\Users\ACER\Documents\workspace\repositories\Final_Year_Project\static\segmented.bmp")
+    return send_file(r"C:\Users\ACER\Documents\workspace\repositories\Online_Lesion_Segmentation_Platform\static\segmented.bmp")
 
 @app.route('/contact')
 def contact():
