@@ -31,34 +31,32 @@
        </form>
       
    </div>
-
-   <div class="col-2">
+   <div class="row-1">
+   <div class="column">
         <label class='output-image-label' for="image">Input Image</label>
         <br><br>
        <img class="output-image" src="{{ url_for('static', filename = 'input_image.bmp')}}">
        <br><br>
     </div> 
 
-  <div class="col-3">
+  <div class="column">
       <label class='output-image-label' for="image">Segmented Image</label>
       <br><br>
      <img class="output-image" src="{{ url_for('static', filename = 'segmented.bmp')}}">
      <br><br>
   </div> 
 
-    <div class="col-4">
+    <div class="column">
       <label class='output-image-label' for="image">Cropped Output</label>
       <br><br>
      <img class="output-image" src="{{ url_for('static', filename = 'cropped.bmp')}}">
      <br><br>
     </div>
+  </div>
 
-    <!-- <div class="col-5">
-      <label class='output-image-label' for="image">Cropped Output</label>
-      <br><br>
-     <img class="output-image" src="{{ url_for('static', filename = 'cropped.bmp')}}">
-     <br><br>
-    </div> -->
+  <div class="see-raw">
+    <a href="{{ url_for('download')}}"><button class="button">See Raw</button></a>
+  </div>
 
 </div> 
 </div>

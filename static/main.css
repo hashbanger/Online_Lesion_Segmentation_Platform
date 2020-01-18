@@ -136,7 +136,7 @@ section{
 }
 
 .segment-lesion__intro{
-    background-image: url(https://www.mdpi.com/diagnostics/diagnostics-09-00072/article_deploy/html/images/diagnostics-09-00072-g013.png);
+    background-image: url(https://workshop2018.isic-archive.com/images/task1.png);
 }
 
 .about-author__intro{
@@ -202,11 +202,18 @@ footer{
     align-content: center;
 }
 
+.row::after{
+    content: "";
+    clear: both;
+    display: table;
+}
 
 
-.col-2, .col-3{
+.column{
     float: left;
     margin: 2em;
+    /* display: inline-block; */
+
 }
 
 
