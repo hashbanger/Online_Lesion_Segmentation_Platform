@@ -12,24 +12,25 @@
     </h2> 
 </section>
 
-<section class="about-lesion">
-    <header class="parallax about-lesion__intro">
+<section class="about-segnet">
+    <header class="parallax about-segnet__intro">
         <h2 class="section-title">
-            About Skin Lesions
+            About SegNet
         </h2> 
     </header>
 
 </section>
 
-<section class="lesion-info">
+
+<section class="segnet-info">
+    <section class="segnet-arch">
+        <img src="https://camo.githubusercontent.com/3d416406f5e996094ac12ddbc3e49a68b5ed6813/68747470733a2f2f7777772e7265736561726368676174652e6e65742f70726f66696c652f4164616d5f437a616a6b61322f7075626c69636174696f6e2f3332363135313832352f6669677572652f666967322f41533a36343734343736353934333830383340313533313337343935393436382f456e636f6465722d6465636f6465722d6172636869746563747572652d6f662d5365674e65742d496e666572656e63652d74616b65732d706c6163652d66726f6d2d6c6566742d746f2d72696768742d53697a652d6f662e706e67" class="segnet">
+    </section>
     <p class="content">
-        A lesion is any damage or abnormal change in the tissue of an organism, usually caused by disease or trauma. Lesion is derived from the Latin laesio "injury". Lesions may occur in plants as well as animals.
-        A skin lesion is an abnormal lump, bump, ulcer, sore or colored area on the skin. Common skin lesions include moles and actinic keratosis, among others.
-        Most skin lesions are benign though some, such as actinic keratosis and certain moles, can be a pre-cursor to a skin cancer or already a skin cancer. This can be determined, on many occasions, by an ASDS member dermatologist.
+        SegNet is a deep neural network based on the encoder-decoder architecture for pixel-wise segmentation, originally proposed and implemented by members of the Computer Vision and Robotics Group at the University of Cambridge, UK. SegNet is based on the principle of Semantic Pixel-Wise Labeling initially used for the segmentation of street images which include a total of twelve different classes. Each pixel in the image is to be classified among one of the twelve classes as per the data.
         <br><br>
-        <strong>Moles:</strong> Moles are small skin marks caused by pigment producing cells in the skin. They can be flat or raised, smooth or rough, and some contain hair. They may occur anywhere on the body. Most are dark brown or black, but some are flesh-colored, red or yellow. They can change in appearance over time. Some can develop into cancer. Benign moles are generally smaller than the size of a pencil eraser.
+        The architecture of SegNet has non-linear layer encoding sequences and decoders corresponding to each layer. There is a final classifier present for the pixel-wise classification. We have used it as the base architecture with varying hyper parameters and structural differences for our lesion segmentation problem.        
         <br><br>
-        <strong>Actinic keratosis:</strong> Actinic keratosis occurs when the skin has sustained too much sun exposure and damage, they appear as crusty bumps. Actinic keratosis may be flesh-colored, brown, pink or red. Affected areas my be inflamed, itch or bleed. Actinic keratosis can develop into skin cancer. For that reason, most dermatologists want to treat these lesions.
     </p>
 </section>
 
