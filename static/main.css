@@ -111,7 +111,7 @@ section{
     text-align: center;
 }
 
-.about-lesion, .about-segmentation, .segment-lesion, .about-author{
+.about-lesion, .about-segmentation, .segment-lesion, .about-author, .about-segnet{
     background-color: var(--clr-accent);
     display: flex;
     flex-direction: column;
@@ -125,6 +125,9 @@ section{
     display: cover;
     background-attachment: fixed;
     padding: 3em 1em;
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
 }
 
 .about-lesion__intro{
@@ -143,12 +146,17 @@ section{
     background-image: url(https://media.glassdoor.com/l/5b/91/18/5d/coding-projects.jpg);
 }
 
-.lesion-info, .segmentation-info{
+.about-segnet__intro{
+    background-image: url(https://i0.wp.com/sefiks.com/wp-content/uploads/2018/03/convolutional-autoencoder.png?fit=1818%2C608&ssl=1);
+}
+
+.lesion-info, .segmentation-info, .segnet-info{
     margin: 1em 2em;
 }
 .about-lesion__intro .section-title,
 .about-segmentation__intro .section-title,
-.about-author__intro .section-title
+.about-author__intro .section-title,
+.about-segnet__intro .section-title
 {
     margin: 1em 1em;
 }
@@ -261,4 +269,13 @@ footer{
 .content{
     margin-top: 2em;
     margin-bottom: 2em;
+}
+
+.segnet-arch{
+    align-items: center;
+}
+
+.segnet{
+    width: 100%;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
