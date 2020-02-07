@@ -13,7 +13,8 @@ import matplotlib.pyplot as plt
 import cv2 
 
 app = Flask(__name__)
-app.config['IMAGE_UPLOADS'] = 'C:\\Users\\ACER\\Documents\\workspace\\repositories\\Online_Lesion_Segmentation_Platform\\static'
+#app.config['IMAGE_UPLOADS'] = 'C:\\Users\\ACER\\Documents\\workspace\\repositories\\Online_Lesion_Segmentation_Platform\\static'
+app.config['IMAGE_UPLOADS'] = '/home/prashant/git_repos_hashbanger/Online_Lesion_Segmentation_Platform/static'
 
 @app.route('/')
 @app.route('/home')
@@ -54,7 +55,10 @@ def get_segment_crop(img,tol=0, mask=None):
     return img[np.ix_(mask.any(1), mask.any(0))]
 
 def convert(filename):
-    filename = os.path.join(r"C:\Users\ACER\Documents\workspace\repositories\Online_Lesion_Segmentation_Platform\static",filename)
+    # filename = os.path.join(r"C:\Users\ACER\Documents\workspace\repositories\Online_Lesion_Segmentation_Platform\static",filename)
+    filename = os.path.join(r"/home/prashant/git_repos_hashbanger/Online_Lesion_Segmentation_Platform/static",filename)
+    
+    
     inp_image = np.array(Image.open(filename))
     print('Segmenting...\n')
 
@@ -65,18 +69,25 @@ def convert(filename):
 
     im_1 = Image.fromarray(np.uint8(cm.gist_earth(img_pred)*255))
     im_1 = im_1.convert("L")
-    im_1.save(r"C:\Users\ACER\Documents\workspace\repositories\Online_Lesion_Segmentation_Platform\static\segmented.bmp")
-
+    # im_1.save(r"C:\Users\ACER\Documents\workspace\repositories\Online_Lesion_Segmentation_Platform\static\segmented.bmp")
+    im_1.save(r"/home/prashant/git_repos_hashbanger/Online_Lesion_Segmentation_Platform/static/segmented.bmp")
 
     dim = (256, 192)
     im_2 = cv2.resize(img_crop, dim, interpolation = cv2.INTER_AREA)
     im_2 = Image.fromarray(im_2)
     im_2 = im_2.convert("RGB")
-    im_2.save(r"C:\Users\ACER\Documents\workspace\repositories\Online_Lesion_Segmentation_Platform\static\cropped.bmp")
+    # im_2.save(r"C:\Users\ACER\Documents\workspace\repositories\Online_Lesion_Segmentation_Platform\static\cropped.bmp")
+    im_2.save(r"/home/prashant/git_repos_hashbanger/Online_Lesion_Segmentation_Platform/static/cropped.bmp")
+
+
+
 
 @app.route('/download', methods = ['GET','POST'])
 def download():
-    return send_file(r"C:\Users\ACER\Documents\workspace\repositories\Online_Lesion_Segmentation_Platform\static\segmented.bmp")
+    # return send_file(r"C:\Users\ACER\Documents\workspace\repositories\Online_Lesion_Segmentation_Platform\static\segmented.bmp")
+    return send_file(r"/home/prashant/git_repos_hashbanger/Online_Lesion_Segmentation_Platform/static/segmented.bmp")
+
+
 
 @app.route('/contact')
 def contact():
