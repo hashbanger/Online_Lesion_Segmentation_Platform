@@ -217,12 +217,10 @@ footer{
 }
 
 
-.column{
+/* .column{
     float: left;
     margin: 2em;
-    /* display: inline-block; */
-
-}
+} */
 
 
 .button {
@@ -285,4 +283,10 @@ footer{
     height: 2rem;
     width: 2rem;
 
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

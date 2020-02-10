@@ -31,7 +31,7 @@
        </form>
       
    </div>
-   <div class="row-1">
+   <div class="flex-container">
    <div class="column">
         <label class='output-image-label' for="image">Input Image</label>
         <br><br>
@@ -46,7 +46,7 @@
      <br><br>
   </div> 
 
-    <div class="column">
+    <div>
       <label class='output-image-label' for="image">Cropped Output</label>
       <br><br>
      <img class="output-image" src="{{ url_for('static', filename = 'cropped.bmp')}}">
