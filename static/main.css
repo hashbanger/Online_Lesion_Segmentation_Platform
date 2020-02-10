@@ -242,6 +242,7 @@ footer{
 .button:hover{
     background-color: #dbdbdb;
     color: var(--clr-accent);    
+    transition: 0.5s;
 }
 
 .output-image{
