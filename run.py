@@ -64,17 +64,30 @@ def convert(filename):
     img_pred = enhance(inp_image).reshape(192,256)
     img_crop = get_segment_crop(img=inp_image, mask= img_pred)
     print('Segmented!\n')
-    print("Cropped!\n")
 
     im_1 = Image.fromarray(np.uint8(cm.gist_earth(img_pred)*255))
     im_1 = im_1.convert("L")
     im_1.save(os.path.join(static_path,'segmented.bmp'))
 
+    src = cv2.cvtColor(inp_image, cv2.COLOR_RGB2GRAY).flatten()
+    src_mask = enhance(inp_image).flatten()
+    
+    for i in range(len(src_mask)):
+        if src_mask[i]==0:
+            src[i]=0
+    src=  src.reshape(192,256)
+    src=  cv2.cvtColor(src, cv2.COLOR_GRAY2RGB)
+    src = Image.fromarray(np.array(src))
+    src = src.convert("RGB")
+    src.save(os.path.join(static_path,'cropped.bmp'))           
+    print("Cropped!\n")
+
     dim = (256, 192)
     im_2 = cv2.resize(img_crop, dim, interpolation = cv2.INTER_AREA)
     im_2 = Image.fromarray(im_2)
     im_2 = im_2.convert("RGB")
-    im_2.save(os.path.join(static_path, 'cropped.bmp'))
+    im_2.save(os.path.join(static_path, 'zoomed.bmp'))
+    print("Zoomed!\n")
 
 @app.route('/download', methods = ['GET','POST'])
 def download():
