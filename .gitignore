@@ -8,7 +8,6 @@ static/cropped.bmp
 static/segmented.bmp
 static/input_image.bmp
 
-*.ipynb
 
 *.py[cod]
 *$py.class
