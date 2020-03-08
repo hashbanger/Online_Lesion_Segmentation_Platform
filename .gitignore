@@ -4,10 +4,6 @@ model/
 input/
 .vscode/
 
-static/cropped.bmp
-static/segmented.bmp
-static/input_image.bmp
-
 
 *.py[cod]
 *$py.class
