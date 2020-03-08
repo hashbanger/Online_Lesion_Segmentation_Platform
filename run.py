@@ -5,7 +5,8 @@ from flask import render_template, request, redirect, send_file
 import os
 
 # Imports for model
-from model_script.model import model
+# from model_script.model import model
+from model_script import models
 from matplotlib import cm
 import numpy as np
 from PIL import Image
@@ -39,14 +40,28 @@ def segment():
             return redirect(request.url)
     return render_template('segment.html')
 
-def enhance(img):
-    sub = (model.predict(img.reshape(1,192,256,3))).flatten()
+# def enhance(img):
+#     sub = (model.predict(img.reshape(1,192,256,3))).flatten()
 
+#     for i in range(len(sub)):
+#         if sub[i] > 0.5:
+#             sub[i] = 1
+#         else:
+#             sub[i] = 0
+#     return sub
+
+def enhance(img):
+    sub1 = (models.model_unet.predict(img.reshape(1,192,256,3))).flatten()
+    sub2 = (models.model_segnet.predict(img.reshape(1,192,256,3))).flatten()
+    sub = sub1[:]
     for i in range(len(sub)):
-        if sub[i] > 0.5:
+        sub[i] = (sub1[i] + sub2[i])/2
+        
+        if sub[i] > 0.7:
             sub[i] = 1
         else:
             sub[i] = 0
+
     return sub
 
 def get_segment_crop(img,tol=0, mask=None):
