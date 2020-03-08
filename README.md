@@ -1,7 +1,7 @@
 # Online Lesion Segmentation Platform
-Segmentation Platform for Skin Lesion Segmentation Online using Flask nad Python
+Segmentation Platform for Skin Lesion Segmentation Online using Flask and Python.
 
-## Intructions  
+## Intructions to Segemnt using SegNet 
 
 ### For Windows
 - Create a virtual environment
@@ -24,7 +24,7 @@ Segmentation Platform for Skin Lesion Segmentation Online using Flask nad Python
 - place the trained model in directory named **model**
 - run the app using `python run.py`
 
-# Extra Scripts
+### Extra Scripts
 
 **skin-lesion-segmentation-using-segnet.ipynb** is for experimental purposes.
 
